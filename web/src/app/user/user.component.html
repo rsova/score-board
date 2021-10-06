@@ -1,0 +1,38 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input [formControl]="myControl"
+           [matAutocomplete]="auto"
+           aria-label="Number"
+           matInput
+           placeholder="Pick a user"
+           type="text">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getUser($event.option.value)' autoActiveFirstOption>
+      <mat-option *ngFor="let option of filteredNames | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Value</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let score of user?.scores">
+        <td>{{score?.category}}</td>
+        <td>{{score?.value}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>{{user?.overallScore}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

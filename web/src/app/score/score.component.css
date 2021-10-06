@@ -1,0 +1,7 @@
+button:active {
+  background: #17a2b8 !important;
+}
+
+button:focus {
+  background: #17a2b8 !important;
+}

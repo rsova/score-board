@@ -1,0 +1,28 @@
+<div class="btn-group" role="group">
+  <button (click)="getScores()" autofocus class="btn btn-secondary mr-2" type="button">Overall</button>
+  <button (click)="getScores('Attack')" class="btn btn-secondary mr-2" type="button">Attack</button>
+  <button (click)="getScores('Defense')" class="btn btn-secondary mr-2" type="button">Defense</button>
+  <button (click)="getScores('Magic')" class="btn btn-secondary mr-2" type="button">Magic</button>
+  <button (click)="getScores('Cooking')" class="btn btn-secondary mr-2" type="button">Cooking</button>
+  <button (click)="getScores('Crafting')" class="btn btn-secondary mr-2" type="button">Crafting</button>
+</div>
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Level</th>
+        <th scope="col">Name</th>
+        <th scope="col">Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let score of scores">
+        <td>{{ score.level }}</td>
+        <td>{{ score.name }}</td>
+        <td>{{ score.value }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
